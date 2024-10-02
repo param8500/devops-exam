@@ -20,6 +20,18 @@ override.tf
 override.tf.json
 *_override.tf
 *_override.tf.json
+urllib3-2.2.3.dist-info
+urllib3
+requests-2.32.3.dist-info
+requestsidna-3.10.dist-info
+idna 
+charset_normalizer-3.3.2.dist-info
+charset_normalizer 
+certifi-2024.8.30.dist-info 
+certifi
+bin
+idna-3.10.dist-info
+requests
 
 # Include override files you do wish to add to version control using negated pattern
 #
