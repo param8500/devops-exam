@@ -52,6 +52,12 @@ resource "aws_lambda_function" "request" {
       subnet_id = aws_subnet.private.id
     }
   }
-  filename = "lambda_function.zip"
-  source_code_hash = filebase64sha256("lambda_function.zip")
+  filename = data.archive_file.code.output_path
+  source_code_hash = data.archive_file.code.output_base64sha256
+}
+
+data "archive_file" "code" {
+  type        = "zip"
+  source_dir  = "lambda_function/"
+  output_path = "lambda_function.zip"
 }
