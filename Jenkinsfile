@@ -23,7 +23,7 @@ pipeline{
         stage("TF Apply"){
             steps{
                 echo "Executing Terraform Apply"
-                sh "terraform apply"              
+                sh "terraform apply -auto-approve "              
             }
         }
         stage("Invoke Lambda"){
