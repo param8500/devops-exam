@@ -16,7 +16,7 @@ resource "aws_route_table" "private" {
 
 # associate routing table with private subnet
 resource "aws_route_table_association" "private" {
-  subnet_id = subnet.private.id
+  subnet_id = aws_subnet.private.id
   route_table_id = aws_route_table.private.id
 }
 
@@ -43,7 +43,7 @@ resource "aws_lambda_function" "request" {
   runtime = "python3.12"
   role = data.aws_iam_role.lambda.arn
   vpc_config {
-    subnet_ids = [subnet.private.id]
+    subnet_ids = [aws_subnet.private.id]
     security_group_ids = [aws_security_group.lambda.id]
   }
   environment {
