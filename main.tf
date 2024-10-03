@@ -49,7 +49,7 @@ resource "aws_lambda_function" "request" {
   environment {
     variables = {
       URL = "https://bc1yy8dzsg.execute-api.eu-west-1.amazonaws.com/v1/data"
-      subnet_id = subnet.private.id
+      subnet_id = aws_subnet.private.id
     }
   }
   filename = "lambda_function.zip"
