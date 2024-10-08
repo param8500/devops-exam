@@ -13,7 +13,7 @@ def lambda_handler(event, context):
         "name": "Addala Paramasiva",
         "email": "addalaparamasiva55@gmail.com"
     }
-    response = requests.get(url, headers=headers, data=json.dumps(payload))
+    response = requests.get(url, headers=headers, json=payload)
     data = response.json()
     if response.status_code != 200:
         return {
