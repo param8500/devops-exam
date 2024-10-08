@@ -12,10 +12,6 @@ resource "aws_route_table" "private" {
     cidr_block = "0.0.0.0/0"
     gateway_id = data.aws_nat_gateway.nat.id
     }
-  route {
-    cidr_block = "10.1.0.0/16"
-    gateway_id = "local"
-  }
 }
 
 # associate routing table with private subnet
