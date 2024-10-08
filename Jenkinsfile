@@ -29,7 +29,7 @@ pipeline{
         stage("Invoke Lambda"){
             steps{
                 echo "Invoking your AWS Lambda"
-                sh "aws lambda invoke --function-name request-1 out --log-type Tail |  base64 -d"
+                sh "aws lambda invoke --function-name request-1 out --log-type Tail --query 'LogResult' --output text |  base64 -d"
             }
         }
     }

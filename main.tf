@@ -27,14 +27,14 @@ resource "aws_security_group" "lambda" {
   description = "Allow inbound traffic from VPC"
 }
 
-# add security group rule for lambda function
-# resource "aws_security_group_rule" "lambda" {
-#   type = "ingress"
-#   from_port = 443
-#   to_port = 443
-#   protocol = "tcp"
-#   security_group_id = aws_security_group.lambda.id
-# }
+add security group rule for lambda function
+resource "aws_security_group_rule" "lambda" {
+  type = "ingress"
+  from_port = 443
+  to_port = 443
+  protocol = "tcp"
+  security_group_id = aws_security_group.lambda.id
+}
 
 # add lambda function to POST a request to the following HTTPS endpoint: https://bc1yy8dzsg.execute-api.eu-west-1.amazonaws.com/v1/data using python 3.12
 resource "aws_lambda_function" "request" {
