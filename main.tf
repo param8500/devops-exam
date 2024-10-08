@@ -6,7 +6,7 @@ resource "aws_subnet" "private" {
 }
 
 # add routing table for private subnet
-resource "aws_route_table" "private" {
+resource "aws_route_table" "private-1" {
   vpc_id = data.aws_vpc.vpc.id
   route {
     cidr_block = "0.0.0.0/0"
