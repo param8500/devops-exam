@@ -6,7 +6,7 @@ resource "aws_subnet" "private" {
 }
 
 # add routing table for private subnet
-resource "aws_route_table" "private-1" {
+resource "aws_route_table" "private1" {
   vpc_id = data.aws_vpc.vpc.id
   route {
     cidr_block = "0.0.0.0/0"
@@ -17,7 +17,7 @@ resource "aws_route_table" "private-1" {
 # associate routing table with private subnet
 resource "aws_route_table_association" "private" {
   subnet_id = aws_subnet.private.id
-  route_table_id = aws_route_table.private.id
+  route_table_id = aws_route_table.private1.id
 }
 
 # add security group for lambda function 
