@@ -16,7 +16,7 @@ resource "aws_route_table" "private1" {
 
 # associate routing table with private subnet
 resource "aws_route_table_association" "private" {
-  subnet_id = aws_subnet.private.id
+  subnet_id = aws_subnet.private1.id
   route_table_id = aws_route_table.private1.id
 }
 
@@ -44,13 +44,13 @@ resource "aws_lambda_function" "request" {
   runtime = "python3.12"
   role = data.aws_iam_role.lambda.arn
   vpc_config {
-    subnet_ids = [aws_subnet.private.id]
+    subnet_ids = [aws_subnet.private1.id]
     security_group_ids = [aws_security_group.lambda.id]
   }
   environment {
     variables = {
       URL = "https://bc1yy8dzsg.execute-api.eu-west-1.amazonaws.com/v1/data"
-      subnet_id = aws_subnet.private.id
+      subnet_id = aws_subnet.private1.id
     }
   }
   filename = data.archive_file.code.output_path

@@ -5,7 +5,6 @@ pipeline{
             steps{
                 echo "Executing Terraform Init"
                  sh "terraform init"
-                 sh "terraform state rm aws_subnet.private"
 
             }
         }
