@@ -1,7 +1,7 @@
 # add private subnet with cidr 10.0.1.0/24
-resource "aws_subnet" "private" {
+resource "aws_subnet" "private1" {
   vpc_id = data.aws_vpc.vpc.id
-  cidr_block = "10.0.1.0/24"
+  cidr_block = "10.0.130.0/24"
   
 }
 
