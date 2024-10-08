@@ -27,7 +27,7 @@ resource "aws_security_group" "lambda" {
   description = "Allow inbound traffic from VPC"
 }
 
-add security group rule for lambda function
+# add security group rule for lambda function
 resource "aws_security_group_rule" "lambda" {
   type = "ingress"
   from_port = 443
